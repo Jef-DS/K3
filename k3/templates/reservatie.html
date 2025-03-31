@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block hoofding %}
+<h2>Er zijn nog enkele plaatsen beschikbaar</h2>
+{% endblock %}
+
+{% block content %}
+    <div>
+        {{ message }}
+    {% for vak in plan %}
+        <h3>Vak {{ vak.vaknr}}</h3>
+        {% for rij in vak.rijen %}
+            <div class="vakrij"><span class="vakrij-rij">rij {{ rij.rijnr + 1}}: </span>
+                {% for stoelnr in range(rij.aantal_stoelen): %}
+                   <span class="vakrij-stoel" {{"disabled" if vak.get_stoel(rij.rijnr, stoelnr).bezet else ""}} data-vak="{{vak.vaknr}}" data-rij="{{rij.rijnr}}" data-stoel="{{stoelnr}}">{{vak.get_stoel(rij.rijnr, stoelnr).stoelnr + 1}}</span>
+                {% endfor %}
+            </div>
+        {% endfor %} 
+    {% endfor %}
+    </div>
+    <div>
+        <h2>Bestelling</h2>
+        <form id="reservatiefrm" class="hidden" action="" method="POST">
+            <label for="voornaam">Voornaam: <input type="text" id="voornaam" name="voornaam"></label>
+            <label for="achternaam">Achternaam: <input type="text" id="achternaam" name="achternaam"></label>
+            <input type="hidden" id="vaknr" name="vaknr" value="">
+            <input type="hidden" id="rijnr" name="rijnr" value="">
+            <input type="hidden" id="stoelnr" name="stoelnr" value="">
+            <span id="stoel"></span>
+            <div>
+                <input type="submit" value="reserveer">
+                <input id="btnCancel" type="reset" value="annuleren">
+            </div>
+        </form>
+    </div>
+{% endblock %}

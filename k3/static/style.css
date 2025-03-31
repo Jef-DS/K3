@@ -1,0 +1,83 @@
+main {
+    min-width: 992px;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 50px;
+}
+header {
+    min-width: 992px;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+nav>ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    column-gap: 30px;
+    margin: 0px;
+    padding: 0px;
+}
+nav li {
+    padding: 50px 0px 10px 0px;
+}
+.selected {
+    border-bottom:1px solid black;
+}
+nav li>a {
+    text-decoration: none;
+    font-weight: 800;
+    font-size:1.125rem;
+    color:rgba(72,70,75);
+}
+nav li>a:hover{
+    color:rgba(131,130,135);
+}
+footer {
+    min-width: 992px;
+    max-width: 1320px;
+    min-height: 200px;
+    padding: 50px;
+    margin: 0 auto;
+    background-color:rgba(238,238,241);
+    color: rgba(72,70,75);
+}
+footer>a{
+    color:rgba(0,0,0, .5);
+}
+footer>a:hover{
+    color:rgba(248,154,32);
+}
+.vakrij {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.vakrij-rij {
+    flex-basis: 5rem;
+}
+
+.vakrij-stoel {
+    flex-basis: 2rem;
+    text-align: center;
+    padding: 5px 0px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.vakrij-stoel[disabled] {
+    background-color: red;
+    cursor:default
+}
+
+
+form {
+    display:flex;
+    flex-direction: column;
+}
+.hidden  {
+    display: none;
+}
